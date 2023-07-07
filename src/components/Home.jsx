@@ -6,12 +6,22 @@ import GitHub from "../assets/socials/github.svg";
 import Books from "../assets/socials/book.svg";
 import { TypeAnimation } from "react-type-animation";
 
+// motion
+import { motion } from "framer-motion";
+// variants
+import { fadeIn } from "../variants";
+
 const Home = () => {
   return (
     <div className="hero my-8 md:py-8 px-7 relative" id="home">
       {/* hero info */}
       <div className="h-screen flex items-center justify-center">
-        <div className="text-center md:w-1/2">
+        <motion.div 
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.7 }}
+        className="text-center md:w-1/2">
           <h1 className="text-primary text-5xl font-extrabold tracking-wider mb-8">
             HEY, I'M RAM MAHESHWARI
           </h1>
@@ -41,7 +51,7 @@ const Home = () => {
           <button className="btn py-4 px-16">PROJECTS</button>
 
 
-        </div>
+        </motion.div>
       </div>
       {/* hero socials */}
       <div className="bg-white w-20 rounded py-1 px-2 absolute left-0 top-48 hidden md:block">

@@ -1,6 +1,11 @@
 import Headline from "../shared/Headline";
 import projects from "../../public/projects.js";
 
+// motion
+import { motion } from "framer-motion";
+// variants
+import { fadeIn } from "../variants";
+
 
 const Projects = () => {
     return (
@@ -9,7 +14,12 @@ const Projects = () => {
 
             <div>
                 {projects.map((project) => <div key={project.id}>
-                    <div className="projects items-center gap-5 my-20">
+                    <motion.div 
+                    variants={fadeIn("up", 0.3)}
+                    initial="hidden"
+                    whileInView={"show"}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="projects items-center gap-5 my-20">
                         <div className="">
                         <img src={project.image} alt="" className="" />
                         </div>
@@ -18,7 +28,7 @@ const Projects = () => {
                         <p className="text-lg text-[#666] leading-6 mb-6">{project.description}</p>
                         <button className="btn py-3 px-7">Case Study</button>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>)}
             </div>
         </div>
